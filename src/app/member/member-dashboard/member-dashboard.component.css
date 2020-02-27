@@ -1,0 +1,33 @@
+.gym-item {
+    border: solid 2px gray;
+    border-radius: 7px;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(219, 219, 219);
+}
+
+.gym-image {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.mybutton {
+    border: none;
+}
+
+.button-delete {
+    position: absolute;
+    right: 10px;
+    bottom: 60px;
+}
+
+.button-edit {
+    position: absolute;
+    right: 40px;
+    bottom: 60px;
+}

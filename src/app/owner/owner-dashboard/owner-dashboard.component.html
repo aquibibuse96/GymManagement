@@ -1,0 +1,20 @@
+<app-header></app-header>
+
+
+
+<div class="container">
+
+    <h2 style="text-align: center; font-family: 'Times New Roman', Times, serif ;">
+        {{gymDetails.data[0].gym_name | titlecase }} <span style="font-size: 60%"> ,
+            {{gymDetails.data[0].gym_loc | titlecase }} </span> </h2>
+    <hr>
+    <app-members [myGymId]="gymId"></app-members>
+    <hr>
+    <app-machines [myGymId]="gymId"></app-machines>
+    <hr>
+    <app-plans [myGymId]="gymId"> </app-plans>
+    <hr>
+    <app-trainers [myGymId]="gymId"></app-trainers>
+    <hr>
+    <br><br><br><br>
+</div>

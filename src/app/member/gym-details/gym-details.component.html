@@ -1,0 +1,85 @@
+<app-header></app-header>
+<div class="container ">
+    <div class="center col-md-12">
+        <h3 style="text-align: center">{{gymDetails.gym_name}}</h3>
+        <table class="table table-striped table-inverse table-responsive">
+            <tbody>
+                <tr>
+                    <td><label><strong>Owner Name :</strong></label></td>
+                    <td>{{gymDetails.first_name}}&nbsp;{{gymDetails.last_name}}</td>
+                </tr>
+                <tr>
+                    <td><label><strong>Location :</strong></label></td>
+                    <td>{{gymDetails.gym_loc}}</td>
+                </tr>
+                <tr>
+                    <td><label><strong>Phone Number :</strong></label></td>
+                    <td>{{gymDetails.phone_no}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit" style="margin-left: 45%;" class="btn btn-success " data-toggle="modal" data-target="#myModalRegister">Register Now  ! <span class="glyphicon glyphicon-ok-sign"></span> </button>
+
+        <app-plans></app-plans>
+        <hr>
+        <app-machines></app-machines>
+        <hr>
+        <app-trainers></app-trainers>
+        <button type="submit" style="margin-left: 45%;" class="btn btn-success" data-toggle="modal" data-target="#myModalRegister">Register Now  ! <span class="glyphicon glyphicon-ok-sign"></span> </button>
+        <br><br><br><br>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModalRegister" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Register To Gym</h4>
+            </div>
+            <div class="modal-body">
+                <form action="" method="POST" class="form-horizontal" role="form">
+                    <div class="container">
+                        <div class="form-check">
+                            <label class="control-label " for="text">Select Plan: </label>
+                            <div *ngFor="let plan of plans2">
+                                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" [(ngModel)]="reg.plan_id"
+                    [ngModelOptions]="{standalone: true}" name={{plan.plan_name}} id={{plan.plan_name}}
+                    value={{plan.plan_id}} checked>
+                  <strong>{{plan.plan_name}}:</strong>
+                  &nbsp;&nbsp;
+                  <span style="color: rgb(9, 190, 9)">{{plan.price}}/- Rs.</span>
+                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <label class="control-label " for="text">Mode Of Payment</label>
+                                <input type="text" class="form-control" [(ngModel)]="reg.mop" [ngModelOptions]="{standalone: true}" placeholder="Enter Mode Of Payment">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <label class="control-label " for="text">Amount:</label>
+                                <input type="number" class="form-control" [(ngModel)]="reg.pay_amount" [ngModelOptions]="{standalone: true}" placeholder="Enter Plan Description">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <label class="control-label " for="text">Paid Date:</label>
+                                <input type="date" class="form-control" [(ngModel)]="reg.paid_date" [ngModelOptions]="{standalone: true}" placeholder="Enter Price">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <button type="submit" class="btn btn-primary" (click)="registerMember(subscriber.subscriber_id)">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

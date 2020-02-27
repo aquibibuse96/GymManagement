@@ -1,0 +1,15 @@
+.form {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    /* margin: 10px; */
+}
+
+.container {
+    border-radius: 7px;
+    border: solid 2px gray;
+    width: 100%;
+    background-image: ("C:/Practise/GYM/Client/frontend/src/assets/images/gym4.jpg");
+    background-image: ("../assets/");
+}

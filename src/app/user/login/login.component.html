@@ -1,0 +1,24 @@
+<app-header></app-header>
+<br><br><br>
+
+<div class="form">
+  <div class="container col-md-5">
+
+    <h3 style="text-align: center;"> <strong>Log In</strong></h3>
+    <div class="form-group ">
+      <label for=""> Username </label>
+      <input type="text" class="form-control" [(ngModel)]="username" name="username" id="username"
+        aria-describedby="helpId" placeholder="Enter Your Username">
+    </div>
+    <div class="form-group">
+      <label for=""> Password </label>
+      <input [(ngModel)]="password" type="password" class="form-control" name="password" id="password" placeholder="Enter Password">
+    </div><br>
+    <div style="margin-left: 32%;">
+      <button mat-raised-button color="success" (click)="onLogin()" type="submit" style="width: 80px;background-color: rgb(20, 231, 115)">Login</button> &nbsp;
+      &nbsp;
+      <button (click)="onRegister()"  mat-raised-button color="warn" type="submit" >Register</button>
+    </div>
+    <br><br>
+  </div>
+</div>

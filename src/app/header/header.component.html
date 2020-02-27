@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'
+        integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+</head>
+
+<body>
+    <a href="https://icons8.com/icon/1783/dumbbell">Dumbbell icon by Icons8</a>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid" >
+            <div class="navbar-header">
+                <ul>
+                    <a class="navbar-brand" (click)="onLogo()" style="color: whitesmoke; cursor: pointer"><i class='fas fa-dumbbell'></i>
+                        Get Set
+                        Gym !!!</a>
+                </ul>
+            </div>
+            <ul class="nav navbar-nav navbar-left">
+                <li> <a *ngIf="loginvalid" style="cursor: pointer" (click)="onDashboard()"><i class='glyphicon glyphicon-home'></i> &nbsp;
+                        Dashboard</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a style="cursor: pointer" (click)="redirectAbout()"><span class="glyphicon glyphicon-copyright-mark"></span> &nbsp;
+                        About</a></li>
+                <li><a style="cursor: pointer" (click)="redirectLogin()">
+                        <span *ngIf="!loginvalid" class="glyphicon glyphicon-log-in"></span>
+                        <span *ngIf="loginvalid" class="glyphicon glyphicon-user"></span> &nbsp;
+                        {{user | titlecase}}
+                    </a></li>
+                <li style="cursor: pointer" id="logoutBtn" *ngIf="loginvalid"><a (click)="onLogout()" data-toggle="tooltip" title="Logout"><span
+                            class="	glyphicon glyphicon-off"></span></a></li>
+                <li>
+                    <div style="width: 50px"></div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</body>
+
+<br><br>
+
+</html>
