@@ -4,7 +4,7 @@ import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -29,52 +29,53 @@ import { AdminProfileComponent } from './admin/admin-profile/admin-profile.compo
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatTableModule} from '@angular/material/table';
 
+const routes: Routes = [
+  { path: 'app-homepage', component: HomepageComponent },
+  { path: 'app-login', component: LoginComponent },
+  { path: 'app-register', component: RegisterComponent },
+  // Admin
+  { path: 'app-dashboard', component: DashboardComponent, canActivate: [UserService, AdminService] },
+  { path: 'app-admin-profile', component: AdminProfileComponent, canActivate: [UserService, AdminService] },
+  // Member
+  { path: 'app-member-dashboard', component: MemberDashboardComponent, canActivate: [UserService, MemberService] },
+  { path: 'app-member-profile', component: MemberProfileComponent, canActivate: [UserService, MemberService] },
+  { path: 'app-gym-details', component: GymDetailsComponent, canActivate: [UserService, MemberService] },
+  // Owner
+  { path: 'app-owner-dashboard', component: OwnerDashboardComponent, canActivate: [UserService, OwnerService] },
+  { path: 'app-owner-profile', component: OwnerProfileComponent, canActivate: [UserService, OwnerService] },
+  { path: 'app-machines', component: MachinesComponent, canActivate: [UserService, OwnerService] },
+  { path: 'app-plans', component: PlansComponent, canActivate: [UserService, OwnerService] },
+  { path: 'app-trainers', component: TrainersComponent, canActivate: [UserService, OwnerService] },
+  { path: 'app-members', component: MembersComponent, canActivate: [UserService, OwnerService] },
+  // root
+  { path: '', redirectTo: '/app-homepage', pathMatch: 'full' }
+];
 
 @NgModule({
   declarations: [
-    AppComponent,
+    HomepageComponent,
     LoginComponent,
     RegisterComponent,
+    AppComponent,
     DashboardComponent,
-    HeaderComponent,
-    HomepageComponent,
+    AdminProfileComponent,
     MemberDashboardComponent,
+    MemberProfileComponent,
+    GymDetailsComponent,
     OwnerDashboardComponent,
+    OwnerProfileComponent,
     MachinesComponent,
     PlansComponent,
     TrainersComponent,
     MembersComponent,
-    GymDetailsComponent,
-    MemberProfileComponent,
-    OwnerProfileComponent,
-    AdminProfileComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    // tslint:disable-next-line: deprecation
     HttpModule,
-    RouterModule.forRoot([
-      { path: 'app-homepage', component: HomepageComponent },
-      { path: 'app-login', component: LoginComponent },
-      { path: 'app-register', component: RegisterComponent },
-
-      { path: 'app-dashboard', component: DashboardComponent, canActivate: [UserService, AdminService] },
-      { path: 'app-admin-profile', component: AdminProfileComponent, canActivate: [UserService, AdminService] },
-
-      { path: 'app-member-dashboard', component: MemberDashboardComponent, canActivate: [UserService, MemberService] },
-      { path: 'app-member-profile', component: MemberProfileComponent, canActivate: [UserService, MemberService] },
-      { path: 'app-gym-details', component: GymDetailsComponent, canActivate: [UserService, MemberService] },
-
-      { path: 'app-owner-dashboard', component: OwnerDashboardComponent, canActivate: [UserService, OwnerService] },
-      { path: 'app-owner-profile', component: OwnerProfileComponent, canActivate: [UserService, OwnerService] },
-      { path: 'app-machines', component: MachinesComponent, canActivate: [UserService, OwnerService] },
-      { path: 'app-plans', component: PlansComponent, canActivate: [UserService, OwnerService] },
-      { path: 'app-trainers', component: TrainersComponent, canActivate: [UserService, OwnerService] },
-      { path: 'app-members', component: MembersComponent, canActivate: [UserService, OwnerService] },
-
-      { path: '', redirectTo: '/app-homepage', pathMatch: 'full' }
-
-    ]),
+    RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     MatButtonModule,
     MatBadgeModule,
