@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Gym } from '../models/Gym';
 
 @Injectable()
 export class AdminService {
   baseUrl = 'http://localhost:4000';
 
+  // tslint:disable-next-line: deprecation
   constructor(private http: Http,
     private router: Router) { }
 

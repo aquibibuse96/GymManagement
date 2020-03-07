@@ -54,8 +54,6 @@
             <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
         </table>
         <hr>
-
-        <!-- ------------------------------------------------------------------------ -->
         <h3>Members </h3>
         <table mat-table [dataSource]="members" multiTemplateDataRows class="mat-elevation-z8">
             <ng-container matColumnDef="first_name">
@@ -121,6 +119,4 @@
             <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
         </table>
         <hr>
-
-        <br><br><br><br>
     </div>

@@ -26,23 +26,24 @@ export interface PlanElement {
   ],
 })
 export class PlansComponent implements OnInit {
-  id
+  id;
   @Input()
-  myGymId: number
-  gymId
+  myGymId: number;
+  gymId;
   plans: PlanElement[];
   isValid: boolean;
   plan: Plan;
   columnsToDisplay: any[];
-  constructor(private router: Router, private router2: ActivatedRoute, private OwnerService: OwnerService, private MemberService: MemberService) {
+  constructor(private router: Router, private router2: ActivatedRoute,
+    private OwnerServices: OwnerService, private MemberServices: MemberService) {
     this.plan = new Plan();
-    
+
   }
 
   onDelete(id) {
     const answer = confirm('are you sure you want to delete this plan?');
     if (answer === true) {
-      this.OwnerService
+      this.OwnerServices
         .deletePlan(id)
         .subscribe((response) => {
           const result = response.json();
@@ -57,21 +58,21 @@ export class PlansComponent implements OnInit {
 
   registerPlan(id) {
     this.plan.gym_id = id;
-    this.OwnerService
+    this.OwnerServices
       .addPlan(this.plan)
       .subscribe((response) => {
         const result = response.json();
         if (result.status === 'success') {
-          alert("Added Plan Successfully")
+          alert('Added Plan Successfully');
           this.ngOnInit();
         } else {
           alert('error occured');
         }
-      })
+      });
   }
 
   getPlans(id) {
-    const observable = this.OwnerService.getPlans(id);
+    const observable = this.OwnerServices.getPlans(id);
     observable
       .subscribe((response) => {
         const result = response.json();
@@ -84,7 +85,7 @@ export class PlansComponent implements OnInit {
   }
 
   getGymPlans(id) {
-    const observable = this.MemberService.getGymPlans(id);
+    const observable = this.MemberServices.getGymPlans(id);
     observable
       .subscribe((response) => {
         const result = response.json();

@@ -15,7 +15,7 @@ export interface MemberElement {
   identity: string;
   price: number;
   plan_description: string;
-  plan_name:string;
+  plan_name: string;
   pay_amount: number;
   paid_date: Date;
   mop: string;
@@ -36,25 +36,24 @@ export interface MemberElement {
 })
 
 export class MembersComponent implements OnInit {
-  id
-  gymId
+  id;
+  gymId;
   members: MemberElement[];
   columnsToDisplay = ['first_name', 'last_name', 'age', 'Gender', 'edit', 'delete'];
   expandedElement: MemberElement;
   @Input()
-  myGymId: number
-  constructor(private router: Router, private router2: ActivatedRoute, private OwnerService: OwnerService) { }
+  myGymId: number;
+  constructor(private router: Router, private router2: ActivatedRoute, private OwnerServices: OwnerService) { }
 
 
   getGymId(id) {
-
-    const observable = this.OwnerService.getGymId(id);
+    const observable = this.OwnerServices.getGymId(id);
     observable
       .subscribe((response) => {
         const result = response.json();
         if (result.status === 'success') {
           this.gymId = result.data[0].gym_id;
-          this.OwnerService.getMembers(this.gymId).
+          this.OwnerServices.getMembers(this.gymId).
             subscribe((response) => {
               const result = response.json();
               if (result.status === 'success') {

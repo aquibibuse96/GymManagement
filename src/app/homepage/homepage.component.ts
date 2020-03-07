@@ -9,15 +9,15 @@ import { MemberService } from 'src/app/services/member.service';
 })
 export class HomepageComponent implements OnInit {
   gyms: any[];
-  src = "../../assets/images/gym4.jfif";
-  constructor(private router: Router, private MemberService: MemberService) { }
+  src = '../../assets/images/gym4.jfif';
+  constructor(private router: Router, private MemberServices: MemberService) { }
 
   gymDetails(gymId) {
-    this.router.navigate(['/app-gym-details', { "gymId": gymId }]);
+    this.router.navigate(['/app-gym-details', { 'gymId': gymId }]);
   }
 
   getAllGyms() {
-    const observable = this.MemberService.getAllGyms();
+    const observable = this.MemberServices.getAllGyms();
     observable
       .subscribe((response) => {
         const result = response.json();

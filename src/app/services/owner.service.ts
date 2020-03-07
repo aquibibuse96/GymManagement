@@ -12,6 +12,7 @@ import { Subscriber } from './../models/Subscriber';
 export class OwnerService implements CanActivate {
   baseUrl = 'http://localhost:4000';
 
+  // tslint:disable-next-line: deprecation
   constructor(private http: Http,
     private router: Router) { }
 
@@ -33,7 +34,7 @@ export class OwnerService implements CanActivate {
   getTrainers(id) {
     return this.http.get(this.baseUrl + '/gymTrainers/' + id);
   }
-  //-------------------------------------------------------------------------------------
+  // -------------------------------------------------------------------------------------
   addMachine(machine: Machine) {
     return this.http.post(this.baseUrl + '/addMachine', machine);
   }
@@ -44,7 +45,7 @@ export class OwnerService implements CanActivate {
     return this.http.post(this.baseUrl + '/addTrainer', trainer);
   }
   addMember(member: Subscriber) {
-    return this.http.post(this.baseUrl + '/addMember', member)
+    return this.http.post(this.baseUrl + '/addMember', member);
   }
   deleteMachine(id) {
     return this.http.delete(this.baseUrl + '/deleteMachine/' + id);
@@ -55,13 +56,13 @@ export class OwnerService implements CanActivate {
   deleteTrainer(id) {
     return this.http.delete(this.baseUrl + '/deleteTrainer/' + id);
   }
-  //-----------------------------------------------------------------------------
+  // -----------------------------------------------------------------------------
   updateMachine(machine: Machine, machine_id) {
     return this.http.put(this.baseUrl + '/updateMachine/' + machine_id, machine);
 
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (sessionStorage['tokenrole'] !== "owner") {
+    if (sessionStorage['tokenrole'] !== 'owner') {
       return false;
     } else {
       return true;

@@ -20,7 +20,8 @@
   <h4 style="color: blue"> <strong><span class="glyphicon glyphicon-list-alt"></span>&nbsp; Subscription Details
     </strong></h4>
   <hr>
-  <p *ngIf="!subscriber.gym_name" style="color: red;"> Not Yet Subscribed <a style="color: blue;" (click)="browseGym()">>> Browse Gym </a></p>
+  <p *ngIf="!subscriber.gym_name" style="color: red;"> Not Yet Subscribed <a style="color: blue;"
+      (click)="browseGym()">>> Browse Gym </a></p>
   <div *ngIf="subscriber.gym_name">
     <h5> <strong> Gym Name: </strong> {{subscriber.gym_name}}</h5>
     <h5> <strong> Gym Location: </strong> {{subscriber.gym_loc}}</h5>

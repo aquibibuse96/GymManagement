@@ -9,6 +9,7 @@ import { MemberRegister } from './../models/MemberRegister';
 export class MemberService {
   baseUrl = 'http://localhost:4000';
 
+  // tslint:disable-next-line: deprecation
   constructor(private http: Http,
     private router: Router) { }
 
@@ -19,7 +20,7 @@ export class MemberService {
     return this.http.get(this.baseUrl + '/getGymDetails/' + id);
   }
 
-  //-----------------------------------------------------------------------------------------
+  // -----------------------------------------------------------------------------------------
   getGymPlans(id) {
     return this.http.get(this.baseUrl + '/getGymPlans/' + id);
   }
@@ -39,7 +40,7 @@ export class MemberService {
 
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (sessionStorage['tokenrole'] !== "member") {
+    if (sessionStorage['tokenrole'] !== 'member') {
       return false;
     } else {
       return true;

@@ -30,16 +30,16 @@ export class MachinesComponent implements OnInit {
   machines: MachineElement[];
   columnsToDisplay: any[];
   expandedElement: MachineElement;
-  id ;
-  gymId ;
+  id;
+  gymId;
   @Input()
-  myGymId: number ;
+  myGymId: number;
   isValid: boolean;
   machine: Machine;
   mac1: Machine;
-  flag: boolean = true;
+  flag = true;
   constructor(private router: Router, private router2: ActivatedRoute,
-    private OwnerService: OwnerService, private MemberService: MemberService) {
+    private OwnerServices: OwnerService, private MemberServices: MemberService) {
     this.machine = new Machine();
     this.mac1 = new Machine();
   }
@@ -74,7 +74,7 @@ export class MachinesComponent implements OnInit {
   onDelete(id) {
     const answer = confirm('are you sure you want to delete this machine?');
     if (answer === true) {
-      this.OwnerService
+      this.OwnerServices
         .deleteMachine(id)
         .subscribe((response) => {
           const result = response.json();
@@ -89,7 +89,7 @@ export class MachinesComponent implements OnInit {
 
   addMachine(machine: Machine) {
     if (this.flag === false) {
-      this.OwnerService
+      this.OwnerServices
         .updateMachine(machine, machine.machine_id)
         .subscribe((response) => {
           const result = response.json();
@@ -104,7 +104,7 @@ export class MachinesComponent implements OnInit {
 
     } else {
 
-      this.OwnerService
+      this.OwnerServices
         .addMachine(this.machine)
         .subscribe((response) => {
           const result = response.json();
@@ -119,7 +119,7 @@ export class MachinesComponent implements OnInit {
   }
 
   getMachines(id) {
-    const observable = this.OwnerService.getMachines(id);
+    const observable = this.OwnerServices.getMachines(id);
     observable
       .subscribe((response) => {
         const result = response.json();
@@ -132,7 +132,7 @@ export class MachinesComponent implements OnInit {
   }
 
   getGymMachines(id) {
-    const observable = this.MemberService.getGymMachines(id);
+    const observable = this.MemberServices.getGymMachines(id);
     observable
       .subscribe((response) => {
         const result = response.json();

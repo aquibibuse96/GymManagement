@@ -7,19 +7,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-user='';
-loginvalid : boolean;
+  user = '';
+  loginvalid: boolean;
   constructor(private router: Router) { }
-  
-  redirectLogin(){
+
+  redirectLogin() {
     this.router.navigate(['/app-login']);
   }
 
-  onLogo(){
+  onLogo() {
     this.router.navigate(['/app-homepage']);
   }
 
-  onDashboard(){
+  onDashboard() {
     if (sessionStorage['tokenrole'] === 'admin') {
       this.router.navigate(['/app-dashboard']);
     } else if (sessionStorage['tokenrole'] === 'member') {
@@ -30,23 +30,22 @@ loginvalid : boolean;
       this.router.navigate(['/app-dashboard']);
     }
   }
-  
-  onLogout() {;
+
+  onLogout() {
     sessionStorage.clear();
     this.router.navigate(['/app-homepage']);
   }
-  
+
   ngOnInit() {
-  
-    var name = sessionStorage['tokenname'];
+    const name = sessionStorage['tokenname'];
     if (sessionStorage['tokenname'] === undefined) {
       this.user = 'Login';
-      this.loginvalid= false;
-      } else {
+      this.loginvalid = false;
+    } else {
       this.user = name;
-      this.loginvalid= true;
-      }
+      this.loginvalid = true;
+    }
   }
-  }
+}
 
 

@@ -18,15 +18,15 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/app-admin-profile']);
     } else if (sessionStorage['tokenrole'] === 'member') {
       // this.service
-        // .memberRegisterationValidation(sessionStorage['token'])
-        // .subscribe((response) => {
-          // const result = response.json();
-          // if (result.data.length !== 0) {
-            this.router.navigate(['/app-member-profile']);
-          // } else {
-          //   this.router.navigate(['/app-member-dashboard']);
-          // }
-        // });
+      // .memberRegisterationValidation(sessionStorage['token'])
+      // .subscribe((response) => {
+      // const result = response.json();
+      // if (result.data.length !== 0) {
+      this.router.navigate(['/app-member-profile']);
+      // } else {
+      //   this.router.navigate(['/app-member-dashboard']);
+      // }
+      // });
       // this.router.navigate(['/app-member-dashboard']);
 
     } else if (sessionStorage['tokenrole'] === 'owner') {

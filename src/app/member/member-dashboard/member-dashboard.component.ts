@@ -9,14 +9,14 @@ import { MemberService } from 'src/app/services/member.service';
 })
 export class MemberDashboardComponent implements OnInit {
   gyms: any[];
-  constructor(private router: Router, private MemberService: MemberService) { }
+  constructor(private router: Router, private MemberServices: MemberService) { }
 
   gymDetails(gymId) {
-    this.router.navigate(['/app-gym-details', { "gymId": gymId }]);
+    this.router.navigate(['/app-gym-details', { 'gymId': gymId }]);
   }
 
   getAllGyms() {
-    const observable = this.MemberService.getAllGyms();
+    const observable = this.MemberServices.getAllGyms();
     observable
       .subscribe((response) => {
         const result = response.json();

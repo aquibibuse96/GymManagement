@@ -9,12 +9,12 @@ import { MemberRegister } from './../../models/MemberRegister';
 })
 export class GymDetailsComponent implements OnInit {
   gymDetails: any;
-  gymId: number
-  subscriber:any
-  person_id: number
-  reg: MemberRegister
-  plans2: any[]
-  constructor(private router: Router, private router2: ActivatedRoute, private MemberService: MemberService) {
+  gymId: number;
+  subscriber: any;
+  person_id: number;
+  reg: MemberRegister;
+  plans2: any[];
+  constructor(private router: Router, private router2: ActivatedRoute, private MemberServices: MemberService) {
     this.reg = new MemberRegister();
   }
 
@@ -23,21 +23,21 @@ export class GymDetailsComponent implements OnInit {
     this.reg.gym_id = this.router2.snapshot.params.gymId;
     // console.log(this.reg);
 
-    this.MemberService
+    this.MemberServices
       .memberRegister(this.reg)
       .subscribe((response) => {
         const result = response.json();
         if (result.status === 'success') {
-          alert("You Have Register Successfully");
+          alert('You Have Register Successfully');
           this.ngOnInit();
         } else {
           alert('error occured');
         }
-      })
+      });
   }
 
   getSubscriberDetails(person_id) {
-    const observable = this.MemberService.getSubscriberDetails(person_id);
+    const observable = this.MemberServices.getSubscriberDetails(person_id);
     observable
       .subscribe((response) => {
         const result = response.json();
@@ -51,7 +51,7 @@ export class GymDetailsComponent implements OnInit {
   }
 
   getGymDetails(id) {
-    const observable = this.MemberService.getGymDetails(id);
+    const observable = this.MemberServices.getGymDetails(id);
     observable
       .subscribe((response) => {
         const result = response.json();
@@ -65,7 +65,7 @@ export class GymDetailsComponent implements OnInit {
   }
 
   getGymPlans(id) {
-    const observable = this.MemberService.getGymPlans(id);
+    const observable = this.MemberServices.getGymPlans(id);
     observable
       .subscribe((response) => {
         const result = response.json();

@@ -4,7 +4,7 @@ import { AdminService } from 'src/app/services/admin.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 export interface OwnerElement {
-  first_name: string ;
+  first_name: string;
   last_name: string;
   gym_name: string;
   gym_loc: string;
@@ -13,7 +13,7 @@ export interface OwnerElement {
 }
 
 export interface MemberElement {
-  first_name: string ;
+  first_name: string;
   last_name: string;
   age: number;
   Gender: string;
@@ -40,14 +40,14 @@ export interface MemberElement {
 export class DashboardComponent implements OnInit {
   owners: OwnerElement[];
   members: MemberElement[];
-  columnsToDisplay = ['first_name', 'last_name', 'gym_name', 'gym_loc','edit','delete'];
-  columnsToDisplay1 = ['first_name', 'last_name', 'age', 'Gender','edit','delete'];
+  columnsToDisplay = ['first_name', 'last_name', 'gym_name', 'gym_loc', 'edit', 'delete'];
+  columnsToDisplay1 = ['first_name', 'last_name', 'age', 'Gender', 'edit', 'delete'];
   expandedElement: OwnerElement;
   expandedElement1: MemberElement;
-  constructor(private router: Router, private AdminService: AdminService) { }
+  constructor(private router: Router, private AdminServices: AdminService) { }
 
   getGyms() {
-    const observable = this.AdminService.getGyms();
+    const observable = this.AdminServices.getGyms();
     observable
       .subscribe((response) => {
         const result = response.json();
@@ -61,7 +61,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getMembers() {
-    const observable = this.AdminService.getMembers();
+    const observable = this.AdminServices.getMembers();
     observable
       .subscribe((response) => {
         const result = response.json();

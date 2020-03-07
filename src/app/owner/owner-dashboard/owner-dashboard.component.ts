@@ -7,10 +7,10 @@ import { OwnerService } from 'src/app/services/owner.service';
   styleUrls: ['./owner-dashboard.component.css']
 })
 export class OwnerDashboardComponent implements OnInit {
-  constructor(private router: Router, private OwnerService: OwnerService) { }
-  id: number
-  gymId: number
-  gymDetails: any
+  constructor(private router: Router, private OwnerServices: OwnerService) { }
+  id: number;
+  gymId: number;
+  gymDetails: any;
 
   onLogout() {
     sessionStorage.clear();
@@ -18,7 +18,7 @@ export class OwnerDashboardComponent implements OnInit {
   }
 
   getGymId(id) {
-    const observable = this.OwnerService.getGymId(id);
+    const observable = this.OwnerServices.getGymId(id);
     observable
       .subscribe((response) => {
         const result = response.json();

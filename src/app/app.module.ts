@@ -21,8 +21,8 @@ import { OwnerProfileComponent } from './owner/owner-profile/owner-profile.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
-import {MatBadgeModule} from '@angular/material/badge';
-import {MatTableModule} from '@angular/material/table';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatTableModule } from '@angular/material/table';
 import { UserService } from './user/user.service';
 import { AdminService } from './services/admin.service';
 import { MemberService } from './services/member.service';
@@ -79,7 +79,7 @@ const routes: Routes = [
     MatButtonModule,
     MatBadgeModule,
     MatTableModule
-    ],
+  ],
   providers: [UserService, AdminService, MemberService, OwnerService],
   bootstrap: [AppComponent]
 })

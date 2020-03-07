@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
 export class MemberProfileComponent implements OnInit {
   person_id: number;
   subscriber: any;
-  constructor(private MemberService: MemberService,private router: Router) {   }
+  constructor(private MemberServices: MemberService, private router: Router) { }
 
   getSubscriberDetails(person_id) {
-    const observable = this.MemberService.getSubscriberDetails(person_id);
+    const observable = this.MemberServices.getSubscriberDetails(person_id);
     observable
       .subscribe((response) => {
         const result = response.json();

@@ -12,12 +12,14 @@
     </div>
     <div class="form-group">
       <label for=""> Password </label>
-      <input [(ngModel)]="password" type="password" class="form-control" name="password" id="password" placeholder="Enter Password">
+      <input [(ngModel)]="password" type="password" class="form-control" name="password" id="password"
+        placeholder="Enter Password">
     </div><br>
     <div style="margin-left: 32%;">
-      <button mat-raised-button color="success" (click)="onLogin()" type="submit" style="width: 80px;background-color: rgb(20, 231, 115)">Login</button> &nbsp;
+      <button mat-raised-button color="success" (click)="onLogin()" type="submit"
+        style="width: 80px;background-color: rgb(20, 231, 115)">Login</button> &nbsp;
       &nbsp;
-      <button (click)="onRegister()"  mat-raised-button color="warn" type="submit" >Register</button>
+      <button (click)="onRegister()" mat-raised-button color="warn" type="submit">Register</button>
     </div>
     <br><br>
   </div>
