@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MemberService } from 'src/app/services/member.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-member-profile',
@@ -7,9 +8,9 @@ import { MemberService } from 'src/app/services/member.service';
   styleUrls: ['./member-profile.component.css']
 })
 export class MemberProfileComponent implements OnInit {
-  person_id:number
-  subscriber:any
-  constructor(private MemberService:MemberService) {   }
+  person_id: number;
+  subscriber: any;
+  constructor(private MemberService: MemberService,private router: Router) {   }
 
   getSubscriberDetails(person_id) {
     const observable = this.MemberService.getSubscriberDetails(person_id);
@@ -25,6 +26,9 @@ export class MemberProfileComponent implements OnInit {
       });
   }
 
+  browseGym() {
+    this.router.navigate(['/app-member-dashboard']);
+  }
   ngOnInit() {
     this.person_id = sessionStorage['token'];
     this.getSubscriberDetails(this.person_id);

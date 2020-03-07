@@ -18,7 +18,7 @@ export class MemberService {
   getGymDetails(id) {
     return this.http.get(this.baseUrl + '/getGymDetails/' + id);
   }
-  
+
   //-----------------------------------------------------------------------------------------
   getGymPlans(id) {
     return this.http.get(this.baseUrl + '/getGymPlans/' + id);
@@ -29,12 +29,12 @@ export class MemberService {
   getGymMachines(id) {
     return this.http.get(this.baseUrl + '/getGymMachines/' + id);
   }
-  getSubscriberDetails(person_id){
+  getSubscriberDetails(person_id) {
     return this.http.get(this.baseUrl + '/getSubscriberDetails/' + person_id);
   }
-  //-----------------------------------------------------------------------------------------
-  memberRegister(reg:MemberRegister){
-    return this.http.post(this.baseUrl + '/memberRegister',reg);
+  // -----------------------------------------------------------------------------------------
+  memberRegister(reg: MemberRegister) {
+    return this.http.post(this.baseUrl + '/memberRegister', reg);
   }
 
 

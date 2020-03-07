@@ -11,18 +11,22 @@ export class AdminService {
     private router: Router) { }
 
   public getGyms() {
-    return this.http.get(this.baseUrl+'/gym');
+    return this.http.get(this.baseUrl + '/gym');
   }
 
   public getMembers() {
-    return this.http.get(this.baseUrl+'/member');
+    return this.http.get(this.baseUrl + '/member');
+  }
+
+  public getDetailedMembers() {
+    return this.http.get(this.baseUrl + '/detailedMember');
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (sessionStorage['tokenrole'] !== "admin") {
-        return false;
-    }else {
-        return true;
+    if (sessionStorage['tokenrole'] !== 'admin') {
+      return false;
+    } else {
+      return true;
     }
   }
 }

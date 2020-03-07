@@ -28,23 +28,23 @@ export interface MachineElement {
 })
 export class MachinesComponent implements OnInit {
   machines: MachineElement[];
-  columnsToDisplay:any[];
+  columnsToDisplay: any[];
   expandedElement: MachineElement;
-  id
-  gymId
+  id ;
+  gymId ;
   @Input()
-  myGymId: number
+  myGymId: number ;
   isValid: boolean;
   machine: Machine;
   mac1: Machine;
   flag: boolean = true;
-  constructor(private router: Router, private router2: ActivatedRoute, private OwnerService: OwnerService, private MemberService: MemberService) {
+  constructor(private router: Router, private router2: ActivatedRoute,
+    private OwnerService: OwnerService, private MemberService: MemberService) {
     this.machine = new Machine();
     this.mac1 = new Machine();
-    
   }
   toggleFlag() {
-    if (this.flag == false) {
+    if (this.flag === false) {
       this.flag = !this.flag;
     }
   }
@@ -88,19 +88,18 @@ export class MachinesComponent implements OnInit {
   }
 
   addMachine(machine: Machine) {
-
-    if (this.flag == false) {
+    if (this.flag === false) {
       this.OwnerService
         .updateMachine(machine, machine.machine_id)
         .subscribe((response) => {
           const result = response.json();
           if (result.status === 'success') {
-            alert("Updated Machine Successfully");
+            alert('Updated Machine Successfully');
             this.ngOnInit();
           } else {
             alert('error occured');
           }
-        })
+        });
 
 
     } else {
@@ -110,12 +109,12 @@ export class MachinesComponent implements OnInit {
         .subscribe((response) => {
           const result = response.json();
           if (result.status === 'success') {
-            alert("Added Machine Successfully");
+            alert('Added Machine Successfully');
             this.ngOnInit();
           } else {
             alert('error occured');
           }
-        })
+        });
     }
   }
 

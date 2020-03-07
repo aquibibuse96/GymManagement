@@ -10,11 +10,6 @@ import { FormsModule } from '@angular/forms';
 import { HomepageComponent } from './homepage/homepage.component';
 import { MemberDashboardComponent } from './member/member-dashboard/member-dashboard.component';
 import { OwnerDashboardComponent } from './owner/owner-dashboard/owner-dashboard.component';
-
-import { UserService } from './user/user.service';
-import { AdminService } from './services/admin.service';
-import { MemberService } from './services/member.service';
-import { OwnerService } from './services/owner.service';
 import { MachinesComponent } from './owner/owner-dashboard/machines/machines.component';
 import { PlansComponent } from './owner/owner-dashboard/plans/plans.component';
 import { TrainersComponent } from './owner/owner-dashboard/trainers/trainers.component';
@@ -28,6 +23,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatTableModule} from '@angular/material/table';
+import { UserService } from './user/user.service';
+import { AdminService } from './services/admin.service';
+import { MemberService } from './services/member.service';
+import { OwnerService } from './services/owner.service';
 
 const routes: Routes = [
   { path: 'app-homepage', component: HomepageComponent },

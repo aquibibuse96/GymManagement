@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Person } from './../models/Person';
 
 @Injectable({
   providedIn: 'root'
@@ -21,12 +22,12 @@ export class UserService implements CanActivate {
     return this.http.post(this.baseUrl + '/login', body, requestOptions);
   }
 
-  public registerUser(){
-
+  public registerUser(person: Person) {
+    return this.http.post(this.baseUrl + '/app-register', person);
   }
 
   public memberRegisterationValidation(person_id){
-    return this.http.get(this.baseUrl + '/memberRegisterationValidation/'+ person_id);
+    return this.http.get(this.baseUrl + '/memberRegisterationValidation/' + person_id);
   }
 
 
@@ -34,9 +35,8 @@ export class UserService implements CanActivate {
     if (sessionStorage['tokenrole'] === undefined) {
         this.router.navigate(['/app-homepage']);
         return false;
-    }else {
+    } else {
         return true;
     }
   }
-
 }

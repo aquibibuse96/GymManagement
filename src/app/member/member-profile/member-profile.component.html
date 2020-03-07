@@ -5,7 +5,8 @@
   <h3 style="text-align: center ; color: red"><strong><span class="glyphicon glyphicon-user"></span>&nbsp;
       {{subscriber.first_name}} {{subscriber.last_name}} </strong> </h3>
   <hr>
-  <h4 style="color: blue"> <strong><span class="glyphicon glyphicon-info-sign"></span>&nbsp; Personal Details </strong></h4>
+  <h4 style="color: blue"> <strong><span class="glyphicon glyphicon-info-sign"></span>&nbsp; Personal Details </strong>
+  </h4>
   <hr>
   <h5> <strong> Gender: </strong> {{subscriber.Gender}}</h5>
   <h5> <strong> Age: </strong> {{subscriber.age}}</h5>
@@ -16,16 +17,20 @@
   <h5> <strong> Identity: </strong> {{subscriber.identity}}</h5>
   <h5> <strong> Address: </strong> {{subscriber.address}}</h5>
   <hr>
-  <h4 style="color: blue"> <strong><span class="glyphicon glyphicon-list-alt"></span>&nbsp; Subscription Details </strong></h4>
+  <h4 style="color: blue"> <strong><span class="glyphicon glyphicon-list-alt"></span>&nbsp; Subscription Details
+    </strong></h4>
   <hr>
-  <h5> <strong> Gym Name: </strong> {{subscriber.gym_name}}</h5>
-  <h5> <strong> Gym Location: </strong> {{subscriber.gym_loc}}</h5>
-  <h5> <strong> Plan Name: </strong> {{subscriber.plan_name}}</h5>
-  <h5> <strong> Plan Description: </strong> {{subscriber.plan_description}}</h5>
-  <h5> <strong> price: </strong> {{subscriber.price}}</h5>
-  <hr>
-  <h5> <strong> Amount Paid: </strong> {{subscriber.pay_amount}}</h5>
-  <h5> <strong> Method of Payment: </strong> {{subscriber.mop}}</h5>
-  <h5> <strong> paid Date: </strong> {{subscriber.paid_date | date}}</h5>
+  <p *ngIf="!subscriber.gym_name" style="color: red;"> Not Yet Subscribed <a style="color: blue;" (click)="browseGym()">>> Browse Gym </a></p>
+  <div *ngIf="subscriber.gym_name">
+    <h5> <strong> Gym Name: </strong> {{subscriber.gym_name}}</h5>
+    <h5> <strong> Gym Location: </strong> {{subscriber.gym_loc}}</h5>
+    <h5> <strong> Plan Name: </strong> {{subscriber.plan_name}}</h5>
+    <h5> <strong> Plan Description: </strong> {{subscriber.plan_description}}</h5>
+    <h5> <strong> price: </strong> {{subscriber.price}}</h5>
+    <hr>
+    <h5> <strong> Amount Paid: </strong> {{subscriber.pay_amount}}</h5>
+    <h5> <strong> Method of Payment: </strong> {{subscriber.mop}}</h5>
+    <h5> <strong> paid Date: </strong> {{subscriber.paid_date | date}}</h5>
+  </div>
   <hr>
 </div>

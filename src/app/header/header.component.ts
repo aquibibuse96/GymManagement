@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 user='';
 loginvalid : boolean;
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
   
   redirectLogin(){
     this.router.navigate(['/app-login']);

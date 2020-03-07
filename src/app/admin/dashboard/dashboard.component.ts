@@ -19,8 +19,8 @@ export interface MemberElement {
   Gender: string;
   phone_no: number;
   address: string;
-  Weight : number;
-  height : number;
+  Weight: number;
+  height: number;
   identity: string;
 }
 
@@ -43,12 +43,11 @@ export class DashboardComponent implements OnInit {
   columnsToDisplay = ['first_name', 'last_name', 'gym_name', 'gym_loc','edit','delete'];
   columnsToDisplay1 = ['first_name', 'last_name', 'age', 'Gender','edit','delete'];
   expandedElement: OwnerElement;
-  expandedElement1 :MemberElement; 
-
-  constructor(private router: Router, private Gymservice: AdminService) { }
+  expandedElement1: MemberElement;
+  constructor(private router: Router, private AdminService: AdminService) { }
 
   getGyms() {
-    const observable = this.Gymservice.getGyms();
+    const observable = this.AdminService.getGyms();
     observable
       .subscribe((response) => {
         const result = response.json();
@@ -62,14 +61,13 @@ export class DashboardComponent implements OnInit {
   }
 
   getMembers() {
-    const observable = this.Gymservice.getMembers();
+    const observable = this.AdminService.getMembers();
     observable
       .subscribe((response) => {
         const result = response.json();
         // console.log(result);
         if (result.status === 'success') {
           this.members = result.data;
-
         } else {
           alert('error occured');
         }

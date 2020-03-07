@@ -1,14 +1,12 @@
 <app-header></app-header>
 <br><br>
-<div class="form">
-
+<form class="formcontainer">
     <div class="container col-md-12 ">
         <h3 style="text-align: center;"> <strong>Register Now!</strong></h3>
-
         <div class="form-group">
             <label for=""> First Name : </label>
             <input type="text" class="form-control" [(ngModel)]="person.first_name" name="first_name" id="first_name"
-                aria-describedby="helpId" placeholder="Enter Firstname">
+                aria-describedby="helpId" placeholder="Enter First name">
         </div>
         <div class="form-group">
             <label for="">Last Name : </label>
@@ -71,8 +69,7 @@
                     <input class="form-check-input" [(ngModel)]="person.role" type="radio" name="role" id="role"
                         value="member"> Member
                     <input class="form-check-input" [(ngModel)]="person.role" type="radio" name="role" id="role"
-                        value="owner">
-                    Owner
+                        value="owner"> Owner
                 </label>
             </div>
         </div><br>
@@ -87,7 +84,7 @@
         <br>&nbsp;<br>
 
     </div>
-</div>
+</form>
 
 <!-- Member Modal -->
 <div class="modal fade" *ngIf="person.role === 'member'" id="myModalRegister" role="dialog">
@@ -104,14 +101,14 @@
                             <div class="col-sm-6">
                                 <label class="control-label " for="text">Height</label>
                                 <input type="number" class="form-control" [(ngModel)]="member.height"
-                                    [ngModelOptions]="{standalone: true}" placeholder="Enter Plan Name">
+                                    [ngModelOptions]="{standalone: true}" placeholder="Enter height in cms">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-6">
                                 <label class="control-label " for="text">Weight:</label>
                                 <input type="number" class="form-control" [(ngModel)]="member.Weight"
-                                    [ngModelOptions]="{standalone: true}" placeholder="Enter Plan Description">
+                                    [ngModelOptions]="{standalone: true}" placeholder="Enter weight in kgs">
                             </div>
                         </div>
                     </div>
@@ -142,14 +139,14 @@
                             <div class="col-sm-6">
                                 <label class="control-label " for="text">Gym Name</label>
                                 <input type="text" class="form-control" [(ngModel)]="gym.gym_name"
-                                    [ngModelOptions]="{standalone: true}" placeholder="Enter Plan Name">
+                                    [ngModelOptions]="{standalone: true}" placeholder="Enter Gym Name">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-6">
                                 <label class="control-label " for="text">Gym Location :</label>
                                 <input type="text" class="form-control" [(ngModel)]="gym.gym_Loc"
-                                    [ngModelOptions]="{standalone: true}" placeholder="Enter Plan Description">
+                                    [ngModelOptions]="{standalone: true}" placeholder="Enter Gym Address">
                             </div>
                         </div>
                     </div>

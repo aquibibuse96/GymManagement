@@ -24,12 +24,16 @@
             <ng-container matColumnDef="edit">
                 <th mat-header-cell *matHeaderCellDef style="text-align: center"> Edit </th>
                 <td mat-cell *matCellDef="let element">
-                    <button class="btn btn-success" style="margin-left: 35%;">Edit</button></td>
+                    <button type="button" class="btn btn-default btn-sm" style="margin-left: 35%;color: blue;">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </button></td>
             </ng-container>
             <ng-container matColumnDef="delete">
                 <th mat-header-cell *matHeaderCellDef style="text-align: center"> Delete </th>
                 <td mat-cell *matCellDef="let element">
-                    <button class="btn btn-danger" style="margin-left: 35%;">Delete</button></td>
+                    <button type="button" class="btn btn-default btn-sm" style="margin-left: 35%;color: red;">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button></td>
             </ng-container>
             <ng-container matColumnDef="expandedDetail">
                 <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
@@ -51,37 +55,6 @@
         </table>
         <hr>
 
-        <!-- <h3>Owners</h3>
-        <table class="table table-fixed table-striped">
-            <thead>
-                <tr>
-                    <th class="col-xs-2">First Name</th>
-                    <th class="col-xs-1">Last Name</th>
-                    <th class="col-xs-1">Address</th>
-                    <th class="col-xs-1">Gender</th>
-                    <th class="col-xs-1">Phone</th>
-                    <th class="col-xs-1">Age</th>
-                    <th class="col-xs-1">Gym Name</th>
-                    <th class="col-xs-2">Gym Location</th>
-                    <th class="col-xs-1">Delete</th>
-                    <th class="col-xs-1">Edit</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let owner of owners">
-                    <td class="col-xs-2">{{owner.first_name}}</td>
-                    <td class="col-xs-1">{{owner.last_name}}</td>
-                    <td class="col-xs-1">{{owner.address}}</td>
-                    <td class="col-xs-1">{{owner.Gender}}</td>
-                    <td class="col-xs-1">{{owner.phone_no}}</td>
-                    <td class="col-xs-1">{{owner.age}}</td>
-                    <td class="col-xs-1">{{owner.gym_name}}</td>
-                    <td class="col-xs-2">{{owner.gym_loc}}</td>
-                    <td class="col-xs-0.5"><button type="submit" class="btn btn-danger">Delete</button></td>
-                    <td class="col-xs-0.5"><button type="submit" class="btn btn-success">Edit</button></td>
-                </tr>
-            </tbody>
-        </table> -->
         <!-- ------------------------------------------------------------------------ -->
         <h3>Members </h3>
         <table mat-table [dataSource]="members" multiTemplateDataRows class="mat-elevation-z8">
@@ -104,23 +77,38 @@
             <ng-container matColumnDef="edit">
                 <th mat-header-cell *matHeaderCellDef style="text-align: center"> Edit </th>
                 <td mat-cell *matCellDef="let element">
-                    <button class="btn btn-success" style="margin-left: 35%;">Edit</button></td>
+                    <button type="button" class="btn btn-default btn-sm" style="margin-left: 35%;color: blue;">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </button></td>
             </ng-container>
             <ng-container matColumnDef="delete">
                 <th mat-header-cell *matHeaderCellDef style="text-align: center"> Delete </th>
                 <td mat-cell *matCellDef="let element">
-                    <button class="btn btn-danger" style="margin-left: 35%;">Delete</button></td>
+                    <button type="button" class="btn btn-default btn-sm" style="margin-left: 35%;color: red;">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button></td>
             </ng-container>
             <ng-container matColumnDef="expandedDetail">
                 <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay1.length">
                     <div class="example-element-detail"
                         [@detailExpand]="element == expandedElement1 ? 'expanded' : 'collapsed'">
                         <div class="example-element-description">
+                            <h5 style="color: blue;">Personal Details</h5>
                             <h5> Phone Number : {{element.phone_no}} </h5>
                             <h5> Address: {{element.address}} </h5>
                             <h5> Weight: {{element.Weight}} </h5>
                             <h5> Height: {{element.height}} </h5>
                             <h5> Identity: {{element.identity}} </h5>
+                            <span class="example-element-description-attribution"> </span>
+                        </div>
+                        <div *ngIf="element.gym_name" class="example-element-description">
+                            <p *ngIf="!element.gym_name" style="color: red;"> Not Subscribed yet </p>
+                            <h5 style="color: blue;">Subscription Details</h5>
+                            <h5> Gym Name : {{element.gym_name}} </h5>
+                            <h5> Address: {{element.gym_loc}} </h5>
+                            <h5> Plan: {{element.plan_name}} </h5>
+                            <h5> Description: {{element.plan_description}} </h5>
+                            <h5 style="color: green;"> Price: {{element.price}} </h5>
                             <span class="example-element-description-attribution"> </span>
                         </div>
                     </div>
@@ -133,39 +121,6 @@
             <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
         </table>
         <hr>
-        <!-- <h3>Members</h3>
-        <table class="table table-fixed table-striped">
-            <thead>
-                <tr>
-                    <th class="col-xs-2">First Name</th>
-                    <th class="col-xs-1">Last Name</th>
-                    <th class="col-xs-1">Address</th>
-                    <th class="col-xs-1">Gender</th>
-                    <th class="col-xs-2">Phone</th>
-                    <th class="col-xs-1">Age</th>
-                    <th class="col-xs-1">Height</th>
-                    <th class="col-xs-1">Weight</th>
-                    <th class="col-xs-1">Delete</th>
-                    <th class="col-xs-1">Edit</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let member of members">
-                    <td class="col-xs-2">{{member.first_name}}</td>
-                    <td class="col-xs-1">{{member.last_name}}</td>
-                    <td class="col-xs-1">{{member.address}}</td>
-                    <td class="col-xs-1">{{member.Gender}}</td>
-                    <td class="col-xs-2">{{member.phone_no}}</td>
-                    <td class="col-xs-1">{{member.age}}</td>
-                    <td class="col-xs-1">{{member.height}}</td>
-                    <td class="col-xs-1">{{member.Weight}}</td>
-                    <td class="col-xs-0.5"><button type="submit" class="btn btn-danger">Delete</button></td>
-                    <td class="col-xs-0.5"><button type="submit" class="btn btn-success">Edit</button></td>
-
-                </tr>
-            </tbody>
-        </table> -->
 
         <br><br><br><br>
     </div>

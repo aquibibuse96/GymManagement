@@ -17,18 +17,18 @@ export class LoginComponent implements OnInit {
     } else if (sessionStorage['tokenrole'] === 'admin') {
       this.router.navigate(['/app-admin-profile']);
     } else if (sessionStorage['tokenrole'] === 'member') {
-      this.service
-      .memberRegisterationValidation(sessionStorage['token'])
-      .subscribe((response) => {
-        const result = response.json();
-        if (result.data.length !== 0) {
-          this.router.navigate(['/app-member-profile']);
-        } else {
-          this.router.navigate(['/app-member-dashboard']);
-        }
-      });
+      // this.service
+        // .memberRegisterationValidation(sessionStorage['token'])
+        // .subscribe((response) => {
+          // const result = response.json();
+          // if (result.data.length !== 0) {
+            this.router.navigate(['/app-member-profile']);
+          // } else {
+          //   this.router.navigate(['/app-member-dashboard']);
+          // }
+        // });
       // this.router.navigate(['/app-member-dashboard']);
-      
+
     } else if (sessionStorage['tokenrole'] === 'owner') {
       this.router.navigate(['/app-owner-profile']);
     } else {
@@ -63,18 +63,15 @@ export class LoginComponent implements OnInit {
                 }
               });
 
-          }
-          else if (result.data.role === 'owner') {
+          } else if (result.data.role === 'owner') {
             this.router.navigate(['/app-owner-dashboard']);
           }
-        }
-        else {
+        } else {
           alert('invalid email or password');
 
         }
       });
   }
-
   onRegister() {
     this.router.navigate(['/app-register']);
   }
